@@ -1,2 +1,2 @@
-# TechlogUtils
-1C:Enterprise technological log utilities.
+# V8Utils
+1C:Enterprise utilities.
