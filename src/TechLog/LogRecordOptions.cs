@@ -13,7 +13,7 @@
 
 using System;
 
-namespace SSavel.TechlogUtils
+namespace SSavel.V8Utils.TechLog
 {
     [Flags]
     public enum LogRecordOptions

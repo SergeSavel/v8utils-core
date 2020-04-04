@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
-namespace SSavel.TechlogUtils
+namespace SSavel.V8Utils.TechLog
 {
     [Serializable]
     [DataContract]

@@ -19,7 +19,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace SSavel.TechlogUtils
+namespace SSavel.V8Utils.TechLog
 {
     public class LogFileReader
     {

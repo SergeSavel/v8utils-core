@@ -19,7 +19,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
-namespace SSavel.TechlogUtils
+namespace SSavel.V8Utils.TechLog
 {
     // Represents a single techlog fie.
 

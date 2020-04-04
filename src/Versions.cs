@@ -14,7 +14,7 @@
 
 using System;
 
-namespace SSavel.TechlogUtils
+namespace SSavel.V8Utils
 {
     internal static class Versions
     {
