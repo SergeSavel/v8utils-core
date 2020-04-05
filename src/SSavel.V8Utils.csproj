@@ -20,17 +20,16 @@ limitations under the License.
         <TargetFrameworks>net451;netstandard2.0</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>SSavel.V8Utils</PackageId>
-        <PackageVersion>0.1.0</PackageVersion>
+        <PackageVersion>0.2.0</PackageVersion>
         <Title>V8Utils</Title>
         <Authors>Serge Savel</Authors>
         <Copyright>2020 Serge Savelev</Copyright>
         <Description>1C:Enterprise 8 utilities.</Description>
         <PackageProjectUrl>https://github.com/SergeSavel/v8utils</PackageProjectUrl>
         <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-        <RepositoryType></RepositoryType>
         <PackageTags>1C:Enterprise</PackageTags>
-        <AssemblyVersion>0.1.0</AssemblyVersion>
-        <FileVersion>0.1.0</FileVersion>
+        <AssemblyVersion>0.2.0</AssemblyVersion>
+        <FileVersion>0.2.0</FileVersion>
         <SignAssembly>true</SignAssembly>
         <Product>V8Utils</Product>
         <RepositoryUrl>https://github.com/SergeSavel/v8utils</RepositoryUrl>
