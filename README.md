@@ -1,2 +1,2 @@
 # V8Utils
-1C:Enterprise utilities.
+Утилиты для работы с 1С:Предприятие
