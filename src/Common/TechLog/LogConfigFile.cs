@@ -13,68 +13,19 @@
 // limitations under the License.
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using SSavel.V8Utils.Platform;
 
 namespace SSavel.V8Utils.TechLog
 {
     public class LogConfigFile
     {
-        private static readonly Regex RegexConfLocation = new Regex(@"^\s*ConfLocation\s*=\s*(.+)\s*$",
-            RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Multiline);
-
-        internal readonly string Path;
-
-        internal readonly Version Version;
-
         private LogConfigFile(string path, Version version)
         {
             Path = path;
             Version = version;
         }
 
-        public static LogConfigFile[] GetFiles(IEnumerable<Agent> agents)
-        {
-            var result = new List<LogConfigFile>();
+        public string Path { get; }
 
-            var majorVersions = new HashSet<Version>();
-            foreach (var agent in agents)
-                majorVersions.Add(Versions.GetMajor(agent.Version));
-
-            foreach (var majorVersion in majorVersions)
-            {
-                var paths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
-                foreach (var agent in agents)
-                {
-                    if (Versions.GetMajor(agent.Version) != majorVersion)
-                        continue;
-
-                    string confLocation = null;
-
-                    var confCfgPath = System.IO.Path.Combine(agent.VersionDir, @"bin\conf\conf.cfg");
-                    if (File.Exists(confCfgPath))
-                    {
-                        var confCfgText = File.ReadAllText(confCfgPath);
-                        var match = RegexConfLocation.Match(confCfgText);
-                        if (match.Success)
-                            confLocation = match.Groups[1].Value;
-                    }
-
-                    if (confLocation == null)
-                        confLocation = System.IO.Path.Combine(agent.CommonDir, "conf");
-
-                    var path = System.IO.Path.Combine(confLocation, "logcfg.xml");
-                    paths.Add(path);
-                }
-
-                foreach (var path in paths)
-                    result.Add(new LogConfigFile(path, majorVersion));
-            }
-
-            return result.ToArray();
-        }
+        public Version Version { get; }
     }
 }
