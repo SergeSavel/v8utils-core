@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net451</TargetFramework>
+    <RootNamespace>SSavel.V8Utils.Windows</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>SSavel.V8Utils.Windows</PackageId>
+    <PackageVersion>0.3.0</PackageVersion>
+    <Authors>Serge Savel</Authors>
+    <Copyright>2020 Serge Savelev</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\V8Utils.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Management"/>
+    <Reference Include="System.ServiceProcess"/>
+  </ItemGroup>
+
+</Project>

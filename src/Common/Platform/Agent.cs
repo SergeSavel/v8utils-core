@@ -75,7 +75,7 @@ namespace SSavel.V8Utils.Platform
                 switch (prevArg)
                 {
                     case "-port":
-                        Port = ushort.Parse(arg);
+                        Port = int.Parse(arg);
                         break;
                     case "-d":
                         WorkDir = arg;
@@ -94,7 +94,7 @@ namespace SSavel.V8Utils.Platform
 
         [DataMember] public string Server { get; }
 
-        [DataMember] public ushort Port { get; }
+        [DataMember] public int Port { get; }
 
         public Version Version { get; private set; }
 
