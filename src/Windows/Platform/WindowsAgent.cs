@@ -37,7 +37,7 @@ namespace SSavel.V8Utils.Windows.Platform
 
         [DataMember] public bool Listening { get; private set; }
 
-        internal static ICollection<WindowsAgent> GetAllLocal(bool onlyListening = true)
+        public static ICollection<WindowsAgent> GetAllLocal(bool onlyListening = true)
         {
             var result = new List<WindowsAgent>();
 

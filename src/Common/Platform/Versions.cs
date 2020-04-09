@@ -19,8 +19,14 @@ namespace SSavel.V8Utils
     public static class Versions
     {
         public static readonly Version V81 = new Version(8, 1);
+
         public static readonly Version V82 = new Version(8, 2);
+
         public static readonly Version V83 = new Version(8, 3);
+        public static readonly Version V83_5 = new Version(8, 3, 5);
+        public static readonly Version V83_12 = new Version(8, 3, 12);
+        public static readonly Version V83_13 = new Version(8, 3, 13);
+
         public static readonly Version V84 = new Version(8, 4);
 
         public static bool Is81(Version version)
