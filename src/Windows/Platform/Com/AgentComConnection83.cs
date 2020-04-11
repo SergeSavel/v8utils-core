@@ -20,11 +20,11 @@ using V83;
 
 namespace SSavel.V8Utils.Windows.Platform.Com
 {
-    public class AgentComConnection83 : IAgentConnection
+    public sealed class AgentComConnection83 : IAgentConnection
     {
+        private readonly Agent _agent;
         private IDictionary<ICluster, IClusterInfo> _clusterInfos;
         private IServerAgentConnection _connection;
-        private bool _disposed;
 
         public AgentComConnection83(Agent agent, ComConnector83 connector)
         {
@@ -34,11 +34,11 @@ namespace SSavel.V8Utils.Windows.Platform.Com
             if (connector == null)
                 throw new ArgumentNullException(nameof(connector));
 
-            Agent = agent;
+            _agent = agent;
             _connection = connector.ComConnector.ConnectAgent(agent.ConnectionString);
         }
 
-        public Agent Agent { get; }
+        public IAgent Agent => _agent;
 
         public ICollection<ICluster> GetClusters()
         {
@@ -74,7 +74,7 @@ namespace SSavel.V8Utils.Windows.Platform.Com
                     continue;
                 }
 
-                var cluster = new Cluster(Agent)
+                var cluster = new Cluster(_agent)
                     {Host = clusterHost, Port = clusterPort, Name = clusterInfo.ClusterName};
                 result.Add(cluster);
 
@@ -199,6 +199,10 @@ namespace SSavel.V8Utils.Windows.Platform.Com
             return result;
         }
 
+        #region Dispose
+
+        private bool _disposed;
+
         public void Dispose()
         {
             Dispose(true);
@@ -215,7 +219,7 @@ namespace SSavel.V8Utils.Windows.Platform.Com
             _clusterInfos = null;
         }
 
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (_disposed) return;
 
@@ -234,5 +238,7 @@ namespace SSavel.V8Utils.Windows.Platform.Com
         {
             Dispose(false);
         }
+
+        #endregion
     }
 }

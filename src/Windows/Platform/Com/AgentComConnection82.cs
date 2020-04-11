@@ -20,11 +20,11 @@ using V82;
 
 namespace SSavel.V8Utils.Windows.Platform.Com
 {
-    public class AgentConnection82 : IAgentConnection
+    public sealed class AgentConnection82 : IAgentConnection
     {
+        private readonly Agent _agent;
         private IDictionary<ICluster, IClusterInfo> _clusterInfos;
         private IServerAgentConnection _connection;
-        private bool _disposed;
 
         public AgentConnection82(Agent agent, ComConnector82 connector)
         {
@@ -34,11 +34,11 @@ namespace SSavel.V8Utils.Windows.Platform.Com
             if (connector == null)
                 throw new ArgumentNullException(nameof(connector));
 
-            Agent = agent;
+            _agent = agent;
             _connection = connector.ComConnector.ConnectAgent(agent.ConnectionString);
         }
 
-        public Agent Agent { get; }
+        public IAgent Agent => _agent;
 
         public ICollection<ICluster> GetClusters()
         {
@@ -74,7 +74,7 @@ namespace SSavel.V8Utils.Windows.Platform.Com
                     continue;
                 }
 
-                var cluster = new Cluster(Agent) {Host = clusterHost, Port = clusterPort, Name = clusterInfo.Name};
+                var cluster = new Cluster(_agent) {Host = clusterHost, Port = clusterPort, Name = clusterInfo.Name};
 
                 result.Add(cluster);
 
@@ -90,7 +90,7 @@ namespace SSavel.V8Utils.Windows.Platform.Com
                 throw new ObjectDisposedException(ToString());
 
             if (_clusterInfos == null || !_clusterInfos.TryGetValue(cluster, out var clusterInfo))
-                throw new ArgumentException("The cluster does not correspond with current connection.");
+                throw new ArgumentException("The cluster does not belong to current connection.");
 
             var items = _connection.GetInfoBases(clusterInfo);
             var result = new List<IInfobase>(items.Length);
@@ -169,12 +169,6 @@ namespace SSavel.V8Utils.Windows.Platform.Com
             return result;
         }
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
         private void ReleaseClusterInfos()
         {
             if (_clusterInfos == null) return;
@@ -185,7 +179,17 @@ namespace SSavel.V8Utils.Windows.Platform.Com
             _clusterInfos = null;
         }
 
-        protected virtual void Dispose(bool disposing)
+        #region Dispose
+
+        private bool _disposed;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
         {
             if (_disposed) return;
 
@@ -204,5 +208,7 @@ namespace SSavel.V8Utils.Windows.Platform.Com
         {
             Dispose(false);
         }
+
+        #endregion
     }
 }

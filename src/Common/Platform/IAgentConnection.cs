@@ -19,7 +19,7 @@ namespace SSavel.V8Utils.Platform
 {
     public interface IAgentConnection : IDisposable
     {
-        Agent Agent { get; }
+        IAgent Agent { get; }
 
         ICollection<ICluster> GetClusters();
 

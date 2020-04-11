@@ -14,7 +14,7 @@
 
 using System;
 
-namespace SSavel.V8Utils
+namespace SSavel.V8Utils.Platform
 {
     public static class Versions
     {

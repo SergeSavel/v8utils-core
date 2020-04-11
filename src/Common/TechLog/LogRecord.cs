@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
+using SSavel.V8Utils.Platform;
 
 namespace SSavel.V8Utils.TechLog
 {

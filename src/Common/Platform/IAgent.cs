@@ -12,30 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System.Runtime.Serialization;
-using SSavel.V8Utils.Platform;
+using System;
 
-namespace SSavel.V8Utils.Windows.Platform
+namespace SSavel.V8Utils.Platform
 {
-    [DataContract]
-    public class Cluster : ICluster
+    public interface IAgent
     {
-        internal Cluster(IAgent agent)
-        {
-            Agent = agent;
-        }
-
-        public IAgent Agent { get; }
-
-        [DataMember] public string Host { get; internal set; }
-
-        [DataMember] public int Port { get; internal set; }
-
-        [DataMember] public string Name { get; internal set; }
-
-        public override string ToString()
-        {
-            return $"{Host}:{Port.ToString()}";
-        }
+        string Path { get; }
+        string CommonDir { get; }
+        string VersionDir { get; }
+        string WorkDir { get; }
+        string Server { get; }
+        int Port { get; }
+        Version Version { get; }
+        bool Debug { get; }
+        string ConnectionString { get; }
     }
 }

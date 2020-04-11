@@ -19,7 +19,7 @@ using V83;
 
 namespace SSavel.V8Utils.Windows.Platform.Com
 {
-    public class ComConnector83 : IComConnector
+    public sealed class ComConnector83 : IComConnector
     {
         private bool _disposed;
         internal COMConnector ComConnector { get; private set; } = new COMConnector();
@@ -38,7 +38,7 @@ namespace SSavel.V8Utils.Windows.Platform.Com
             GC.SuppressFinalize(this);
         }
 
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (_disposed) return;
 
