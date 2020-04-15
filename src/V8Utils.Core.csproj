@@ -1,5 +1,5 @@
 <!--
-Copyright 2020 Serge Savelev
+Copyright 2020 Sergey Savelev
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ limitations under the License.
         <PackageVersion>0.5.0-RC1</PackageVersion>
         <Title>V8Utils.Core</Title>
         <Authors>Serge Savel</Authors>
-        <Copyright>2020 Serge Savelev</Copyright>
+        <Copyright>2020 Sergey Savelev</Copyright>
         <Description>1C:Enterprise 8 utilities (basic abstractions and cross-platform implementations).</Description>
         <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
         <PackageTags>1C:Enterprise</PackageTags>
