@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V8Utils.Core", "V8Utils.Core.csproj", "{97F6B299-B465-4717-BC35-42A91E6CE959}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V8Utils.Core", "src\V8Utils.Core.csproj", "{97F6B299-B465-4717-BC35-42A91E6CE959}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
